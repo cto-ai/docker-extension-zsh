@@ -1,14 +1,14 @@
 .PHONY: image install run
 
 image:
-	docker build -t helloworld:extension .
+	docker build -t ctoai/docker-extension-zsh:latest .
 
 install:
-	docker extension install helloworld:extension -f
+	docker extension install ctoai/docker-extension-zsh:latest -f
 
 uninstall:
-	docker extension rm helloworld:extension ||true
+	docker extension rm ctoai/docker-extension-zsh:latest ||true
 
 run:
-	docker run -d --rm --pid=host --privileged -p 8129:8080 helloworld:extension 
+	docker run -d --rm --pid=host --privileged -p 8128:8080 ctoai/docker-extension-zsh:latest 
 
