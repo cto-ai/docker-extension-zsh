@@ -1,7 +1,17 @@
 services:
-  helloworld:
+  cli:
     image: ${DESKTOP_PLUGIN_IMAGE}
     ports:
-      - "8129:8080"
+      - "8130:8080"
     privileged: true
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 4G
+        reservations:
+          cpus: '2'
+          memory: 2G
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
